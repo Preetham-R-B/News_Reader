@@ -1,0 +1,20 @@
+<html>
+<head>
+	<title>News</title>
+</head>
+<body>
+	<h1>News</h1>
+	<form action="/" method="post">
+		<select name="publication">
+			<option value="wired" {{ 'selected' if publication == 'wired' }}>Wired</option>
+			<option value="bbc" {{ 'selected' if publication == 'bbc' }}>BBC</option>
+		</select>
+		<input type="submit" value="Go" />
+	</form>
+	{% for article in articles %}
+	<b><a href="{{article.link}}">{{article.title}}</a></b><br />
+	<i>{{article.published}}</i><br />
+	{{article.summary|safe}}
+	<hr />
+	{% endfor %}</body>
+</html>
